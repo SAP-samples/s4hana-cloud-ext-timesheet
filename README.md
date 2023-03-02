@@ -42,15 +42,14 @@ In this example, you create a communication arrangement and allow access to the 
 
 To download this project run this command.
 ```
-git clone https://github.com/SAP-samples/timesheet-cf.git  
-cd timesheet-cf
-git checkout timesheet-cf
+git clone https://github.com/SAP-samples/s4hana-cloud-ext-timesheet.git
+cd s4hana-cloud-ext-timesheet
 ```
 
 Or if you want to clone the single branch only:
 ```
-git clone -b timesheet-cf --single-branch git://github.com/SAP-samples/timesheet-cf.git  
-cd timesheet-cf
+git clone -b timesheet-cf --single-branch git://github.com/SAP-samples/s4hana-cloud-ext-timesheet.git
+cd s4hana-cloud-ext-timesheet
 ```
 
 
@@ -62,7 +61,7 @@ To build this project to a deployable .mtar, run the below command in timesheet-
 
 You can adopt the project deployment using ```mta.yaml``` file. It has  deployment details of each module.
 
-Build Result: "../timesheet-cf/mta_archives/time-sheet_0.0.1.mtar" is created.
+Build Result: "../mta_archives/time-sheet_0.0.1.mtar" is created.
 
 Deploy to SAP Business Technology Platform
 ----------------------------
@@ -104,16 +103,16 @@ Troubleshooting
 ------------
 
     In case you hit the error page, please go through the exception
-    trace for more details. Exception trace can be found under SAP
-    CloudPlatform Cockpit > Java applications > time-sheet-backend >
-    Logging > **Default Traces** .
- 
+    trace for more details. 
     
+    cf logs <application name> --recent
+ 
     **Known Exceptions:**
     ODataException connectivity : Re-check your Destinations S4HANA_CLOUD and the S/4HANA System.
     FileNotFoundException : Make sure that you don't have directory names that contain whitespaces in the project path. eg. "s4 cld ext timesheet"
     
-    If you work with your [SAP Business Technology Platform Trial account](https://account.hanatrial.ondemand.com/), you must add the following 2 properties to the destination so that the connection to SAP S/4HANA Cloud works:  
+    If you work with your [SAP Business Technology Platform Trial account](https://account.hanatrial.ondemand.com/), 
+    you must add the following 2 properties to the destination so that the connection to SAP S/4HANA Cloud works:  
 
       proxyHost =	proxy-trial.od.sap.biz  
       proxyPort =	8080
@@ -126,13 +125,12 @@ Note: This sample code is primarily for illustration purposes and is not intende
 
 How to obtain support
 ---------------------
-SAP does not offer any official support for the sample code (see the SAP SAMPLE CODE LICENSE AGREEMENT on GitHub). However, if you have any problems, use the Issues section on the GitHub to report an incident.
+SAP does not offer any official support for the sample code (see the SAP SAMPLE CODE LICENSE AGREEMENT on GitHub). However, if you have any problems, [Create an issue](https://github.com/SAP-samples/s4hana-cloud-ext-timesheet/issues) in this repository, if you find a bug or have questions about the content.
+ 
+For additional support, [ask a question in SAP Community](https://answers.sap.com/questions/ask.html).
 
-### Copyright and License
+## Contributing
+If you wish to contribute code, offer fixes or improvements, please send a pull request. Due to legal reasons, contributors will be asked to accept a DCO when they create the first pull request to this project. This happens in an automated fashion during the submission process. SAP uses [the standard DCO text of the Linux Foundation](https://developercertificate.org/).
 
-Copyright (c) 2023 SAP SE or an SAP affiliate company. All rights reserved.
-This file is licensed under the Apache Software License, v. 2 except as noted otherwise in the [LICENSE](LICENSE) file
-
-http://www.apache.org/licenses/LICENSE-2.0
-
-Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
+## Copyright and License
+Copyright (c) 2023 SAP SE or an SAP affiliate company. All rights reserved. This project is licensed under the Apache Software License, version 2.0 except as noted otherwise in the [LICENSE](LICENSE) file.
