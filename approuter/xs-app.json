@@ -1,0 +1,22 @@
+{
+    "welcomeFile": "index.html",
+    "authenticationMethod": "route",
+    "logout": {
+        "logoutEndpoint": "/do/logout"
+    },
+    "routes": [
+        {
+            "source": "^/rest(.*)$",
+            "target": "$1",
+            "authenticationType": "xsuaa",
+            "destination": "backend",
+            "csrfProtection": false
+        },
+        {
+            "source": "^(.*)$",
+            "target": "/sapuidemowt$1",
+            "authenticationType": "xsuaa",
+            "service": "html5-apps-repo-rt"
+        }
+    ]
+}

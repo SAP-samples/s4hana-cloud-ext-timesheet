@@ -1,0 +1,35 @@
+specVersion: "2.4"
+metadata:
+  name: sap.ui.demo.wt
+type: application
+server:
+  customMiddleware:
+    - name: fiori-tools-proxy
+      afterMiddleware: compression
+      configuration:
+        ignoreCertError: false
+        backend:
+          - path: /sap
+            url: https://time-backend-wise-hyrax-za.cfapps.eu12.hana.ondemand.com
+            destination: timebackend
+          - path: /rest
+            destination: timebackend
+            url: https://time-backend-wise-hyrax-za.cfapps.eu12.hana.ondemand.com
+            pathPrefix: /
+        ui5:
+          path:
+            - /resources
+            - /test-resources
+          url: https://ui5.sap.com
+          version: 1.48.6
+    - name: fiori-tools-appreload
+      afterMiddleware: compression
+      configuration:
+        port: 35729
+        path: webapp
+        delay: 300
+    - name: fiori-tools-preview
+      afterMiddleware: fiori-tools-appreload
+      configuration:
+        component: sap.ui.demo.wt
+        ui5Theme: sap_fiori_3

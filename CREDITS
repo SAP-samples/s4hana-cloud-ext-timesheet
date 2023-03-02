@@ -1,0 +1,53 @@
+This program references the following third party open source or other free download components.
+The third party licensors of these components may provide additional license rights,
+terms and conditions and/or require certain notices as described below.
+
+Business Technology Platform - SAP BTP Cloud Foundry (com.sap.cloud.sdk.cloudplatform:scp-cf:4.1.0 - https://sap.github.io/cloud-sdk/docs/java/getting-started)
+Licensed under SAP DEVELOPER LICENSE AGREEMENT
+
+cf-java-logging-support-logback (com.sap.hcp.cf.logging:cf-java-logging-support-logback:3.6.2 - https://github.com/SAP/cf-java-logging-support/cf-java-logging-support-logback)
+Licensed under The Apache Software License, Version 2.0
+
+javax.inject (javax.inject:javax.inject:1 - http://code.google.com/p/atinject/)
+Licensed under The Apache Software License, Version 2.0
+
+JCL 1.2 implemented over SLF4J (org.slf4j:jcl-over-slf4j:1.7.36 - http://www.slf4j.org)
+Licensed under Apache License, Version 2.0
+
+JSONassert (org.skyscreamer:jsonassert:1.5.1 - https://github.com/skyscreamer/JSONassert)
+Licensed under The Apache Software License, Version 2.0
+
+JUnit (junit:junit:4.13.2 - http://junit.org)
+Licensed under Eclipse Public License 1.0
+
+Logback Classic Module (ch.qos.logback:logback-classic:1.2.11 - http://logback.qos.ch/logback-classic)
+Licensed under Eclipse Public License - v 1.0
+Licensed under GNU Lesser General Public License
+
+SAP S/4HANA - All (com.sap.cloud.sdk.s4hana:s4hana-all:4.1.0 - https://sap.github.io/cloud-sdk/docs/java/getting-started)
+Licensed under SAP DEVELOPER LICENSE AGREEMENT
+
+SLF4J API Module (org.slf4j:slf4j-api:1.7.36 - http://www.slf4j.org)
+Licensed under MIT License
+
+Spring TestContext Framework (org.springframework:spring-test:5.3.22 - https://github.com/spring-projects/spring-framework)
+Licensed under Apache License, Version 2.0
+
+spring-boot-starter-web (org.springframework.boot:spring-boot-starter-web:2.7.3 - https://spring.io/projects/spring-boot)
+Licensed under Apache License, Version 2.0
+
+spring-boot-test (org.springframework.boot:spring-boot-test:2.7.3 - https://spring.io/projects/spring-boot)
+Licensed under Apache License, Version 2.0
+
+spring-boot-test-autoconfigure (org.springframework.boot:spring-boot-test-autoconfigure:2.7.3 - https://spring.io/projects/spring-boot)
+Licensed under Apache License, Version 2.0
+
+spring-security-test (org.springframework.security:spring-security-test:5.7.3 - https://spring.io/projects/spring-security)
+Licensed under Apache License, Version 2.0
+
+time-backend - Application (com.sap.csc:time-backend-application:1.0-SNAPSHOT - no url defined)
+Licensed under Unknown license
+
+xsuaa-spring-boot-starter (com.sap.cloud.security.xsuaa:xsuaa-spring-boot-starter:2.13.2 - https://github.com/SAP/cloud-security-xsuaa-integration)
+Licensed under The Apache Software License, Version 2.0
+
