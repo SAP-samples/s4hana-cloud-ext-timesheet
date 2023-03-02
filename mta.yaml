@@ -1,0 +1,115 @@
+ID: time-sheet
+_schema-version: 3.2.0
+version: 0.0.1
+description: "time-sheet application"
+parameters:
+  enable-parallel-deployments: true
+modules:
+# --------------------- APPROUTER MODULE --------------------
+  - name: time-sheet
+# -----------------------------------------------------------
+    type: javascript.nodejs
+    path: approuter
+    parameters:
+      memory: 256M
+      disk-quota: 256M
+      routes:
+      - route: time-sheet-dev.${domain}
+    build-parameters:
+      ignore: ["node_modules/"]
+    requires:
+      - name: sap-ui-demo-wt-html5_repo_runtime
+      - name: sap-ui-demo-wt-xsuaa-srv
+      - name: backend
+        group: destinations
+        properties:
+          name: backend
+          url: ~{url}
+          forwardAuthToken: true
+          timeout: 300000
+
+# --------------------- SERVER MODULE BACKEND----------------
+  - name: time-sheet-backend
+# -----------------------------------------------------------
+    type: java
+    path: application
+    parameters:
+      memory: 1024M
+      disk-quota: 1024M
+      buildpack: sap_java_buildpack
+    properties:
+      TARGET_RUNTIME: main
+      SPRING_PROFILES_ACTIVE: cloud
+      JBP_CONFIG_SAPJVM_MEMORY_SIZES: 'metaspace:128m..'
+    build-parameters:
+      builder: custom
+      commands:
+        - mvn clean package -DskipTests=true
+      build-result: target/*-application.jar
+    requires:
+      - name: sap-ui-demo-wt-xsuaa-srv
+      - name: sap-ui-demo-wt-destination
+      - name: sap-ui-demo-wt-logging
+    provides:
+    - name: backend
+      properties:
+        url: "${default-url}"
+
+# --------------------- WEBAPP DEPLOYER MODULE --------------
+  - name: webapp-deployer
+# -----------------------------------------------------------
+    type: com.sap.application.content
+    path: timesheet-frontend/deployer
+    requires:
+      - name: sap-ui-demo-wt-html5-repo-host
+        parameters:
+          content-target: true
+    build-parameters:
+      build-result: resources
+      requires:
+        - name: time-sheet-frontend
+          artifacts:
+            - sapuidemowt.zip
+          target-path: resources/
+
+# --------------------- UI MODULE --------------------
+  - name: time-sheet-frontend
+# -----------------------------------------------------
+    type: html5
+    path: timesheet-frontend
+    build-parameters:
+      build-result: dist
+      builder: custom
+      commands:
+        - npm run build:cf
+      supported-platforms: []
+
+# --------------------- RESOURCES ---------------------
+resources:
+# -----------------------------------------------------
+  - name: sap-ui-demo-wt-html5-repo-host
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: app-host
+      service: html5-apps-repo
+  - name: sap-ui-demo-wt-html5_repo_runtime
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: app-runtime
+      service: html5-apps-repo
+  - name: sap-ui-demo-wt-destination
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: lite
+      service: destination
+  - name: sap-ui-demo-wt-logging
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: lite
+      service: application-logs
+  - name: sap-ui-demo-wt-xsuaa-srv
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: application
+      service: xsuaa
+      path: ./xs-security.json

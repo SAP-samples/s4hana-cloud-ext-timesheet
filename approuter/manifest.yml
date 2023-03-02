@@ -1,0 +1,17 @@
+---
+
+applications:
+- name: time-sheet
+  memory: 256M
+  disk_quota: 256M
+  path: ./
+  buildpack: nodejs_buildpack
+  services:
+    - sap-ui-demo-wt-xsuaa-srv
+    - sap-ui-demo-wt-html5_repo_runtime
+  env:
+    destinations: >
+      [
+        {"name":"timebackend", "url" :"https://time-backend-wise-hyrax-za.cfapps.eu12.hana.ondemand.com","forwardAuthToken": true},
+        {"name":"frontend", "url" :"https://timesheet-migration-4o1evjn0.launchpad.cfapps.eu12.hana.ondemand.com/7b4dbba6-a13b-47f4-ac77-2b0167672499.sap-ui-demo-wt.sapuidemowt-1.0.0/"}
+      ]
