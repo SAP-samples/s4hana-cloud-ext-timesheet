@@ -55,7 +55,7 @@ cd s4hana-cloud-ext-timesheet
 
 ## Build it
 
-To build this project to a deployable .mtar, run the below command in timesheet-cf folder.
+To build this project to a deployable .mtar, run the below command in s4hana-cloud-ext-timesheet folder.
 
 ```mbt build```
 
