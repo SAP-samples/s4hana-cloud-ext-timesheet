@@ -1,3 +1,5 @@
+[![REUSE status](https://api.reuse.software/badge/github.com/SAP-samples/s4hana-cloud-ext-timesheet)](https://api.reuse.software/info/github.com/SAP-samples/s4hana-cloud-ext-timesheet)
+
 # S/4HANA Cloud extensions - Quick Time Entry for SAP S/4HANA Time Recording (SAP S/4HANA Cloud SDK)
 
 This web application showcases an extension to an SAP S/4HANA Cloud system.
